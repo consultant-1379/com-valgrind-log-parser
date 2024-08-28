@@ -1,0 +1,3625 @@
+<?xml version="1.0"?>
+
+<valgrindoutput>
+
+<protocolversion>4</protocolversion>
+<protocoltool>memcheck</protocoltool>
+
+<preamble>
+  <line>Memcheck, a memory error detector</line>
+  <line>Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.</line>
+  <line>Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info</line>
+  <line>Command: /opt/com/bin/com /opt/com/etc/com.cfg</line>
+</preamble>
+
+<pid>9656</pid>
+<ppid>9601</ppid>
+<tool>memcheck</tool>
+
+<args>
+  <vargv>
+    <exe>/home/ekasske/valgrind/valgrind-3.7.0p1/bin/valgrind</exe>
+    <arg>--tool=memcheck</arg>
+    <arg>--keep-unloaded-syms=yes</arg>
+    <arg>--leak-check=full</arg>
+    <arg>--error-limit=no</arg>
+    <arg>--show-reachable=yes</arg>
+    <arg>--track-origins=yes</arg>
+    <arg>--suppressions=/opt/com/etc/suppressions.txt</arg>
+    <arg>--xml=yes</arg>
+    <arg>--xml-file=/opt/com/log/valgrind.xml</arg>
+  </vargv>
+  <argv>
+    <exe>/opt/com/bin/com</exe>
+    <arg>/opt/com/etc/com.cfg</arg>
+  </argv>
+</args>
+
+<status>
+  <state>RUNNING</state>
+  <time>00:00:00:00.165 </time>
+</status>
+
+<error>
+  <unique>0x5</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xB73EAE2</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>FtMoDbService::DataConversionHelper::toV1Container(Maf::AutoMemory&amp;, MafMoAttributeValueContainer_3 const*)</fn>
+    </frame>
+    <frame>
+      <ip>0xB78A5CF</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>FtMoDbService::MoOiHandler::getMoAttribute(FtMoDbService::MoArgGet&amp;, MafReturnT&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xB78355D</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>FtMoDbService::MoDbService::getMoAttribute(FtMoDbService::MoArgGet&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xB78371E</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>_ftMoDbGetMoAttribute_1</fn>
+    </frame>
+    <frame>
+      <ip>0x774E89A</ip>
+      <obj>/opt/com/lib/comp/libft.so</obj>
+      <fn>ComFt::FtMoDbServiceWrapper::getMoAttribute(unsigned long, char const*, char const*, ComMoAttributeValueContainer**)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/ft_lib</dir>
+      <file>ft_mo_db_service_wrapper_impl.cc</file>
+      <line>321</line>
+    </frame>
+    <frame>
+      <ip>0x7750513</ip>
+      <obj>/opt/com/lib/comp/libft.so</obj>
+      <fn>_mo_db_wrapper_getMoAttribute_if</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/ft_lib</dir>
+      <file>ft_mo_db_service_wrapper_impl.cc</file>
+      <line>1346</line>
+    </frame>
+    <frame>
+      <ip>0x595ED7</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::MoSpi_1_to_1::getMoAttribute(unsigned long, char const*, char const*, MafMoAttributeValueContainer**)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A1EDF</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::GetMoAttributeCmd::do_execute_v1(MafCmRouterService::CmRouterParticipant&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A07D1</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::Cmd::execute(MafCmRouterService::CmRouterParticipant&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A2AA7</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::Cmd::execute()</fn>
+    </frame>
+    <frame>
+      <ip>0x57793E</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>getMoAttribute_1</fn>
+    </frame>
+    <frame>
+      <ip>0xBC58427</ip>
+      <obj>/opt/com/lib/comp/libcom_security_mgmt_service.so</obj>
+      <fn>ComSecurityManagement::SmStorage::getAdmStateFromMOM(bool&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/security_management/src</dir>
+      <file>SmStorage.cc</file>
+      <line>163</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C26BDA</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>263</line>
+    </frame>
+    <frame>
+      <ip>0xBC39C64</ip>
+      <obj>/opt/com/lib/comp/libcom_security_mgmt_service.so</obj>
+      <fn>ComSecurityManagement::SmComponent::getMoAttribute(unsigned long, char const*, char const*, MafMoAttributeValueResult_3*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/security_management/src</dir>
+      <file>SmComponent.cc</file>
+      <line>921</line>
+    </frame>
+    <frame>
+      <ip>0xBC39F2B</ip>
+      <obj>/opt/com/lib/comp/libcom_security_mgmt_service.so</obj>
+      <fn>sm_getMoAttribute_3</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/security_management/src</dir>
+      <file>SmComponent.cc</file>
+      <line>96</line>
+    </frame>
+    <frame>
+      <ip>0xB78A573</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>FtMoDbService::MoOiHandler::getMoAttribute(FtMoDbService::MoArgGet&amp;, MafReturnT&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xB78355D</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>FtMoDbService::MoDbService::getMoAttribute(FtMoDbService::MoArgGet&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xB78371E</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>_ftMoDbGetMoAttribute_1</fn>
+    </frame>
+    <frame>
+      <ip>0x774E89A</ip>
+      <obj>/opt/com/lib/comp/libft.so</obj>
+      <fn>ComFt::FtMoDbServiceWrapper::getMoAttribute(unsigned long, char const*, char const*, ComMoAttributeValueContainer**)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/ft_lib</dir>
+      <file>ft_mo_db_service_wrapper_impl.cc</file>
+      <line>321</line>
+    </frame>
+    <frame>
+      <ip>0x7750513</ip>
+      <obj>/opt/com/lib/comp/libft.so</obj>
+      <fn>_mo_db_wrapper_getMoAttribute_if</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/ft_lib</dir>
+      <file>ft_mo_db_service_wrapper_impl.cc</file>
+      <line>1346</line>
+    </frame>
+    <frame>
+      <ip>0x595ED7</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::MoSpi_1_to_1::getMoAttribute(unsigned long, char const*, char const*, MafMoAttributeValueContainer**)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A1EDF</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::GetMoAttributeCmd::do_execute_v1(MafCmRouterService::CmRouterParticipant&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A07D1</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::Cmd::execute(MafCmRouterService::CmRouterParticipant&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A2AA7</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::Cmd::execute()</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x6</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xB73EB00</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>FtMoDbService::DataConversionHelper::toV1Container(Maf::AutoMemory&amp;, MafMoAttributeValueContainer_3 const*)</fn>
+    </frame>
+    <frame>
+      <ip>0xB78A5CF</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>FtMoDbService::MoOiHandler::getMoAttribute(FtMoDbService::MoArgGet&amp;, MafReturnT&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xB78355D</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>FtMoDbService::MoDbService::getMoAttribute(FtMoDbService::MoArgGet&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xB78371E</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>_ftMoDbGetMoAttribute_1</fn>
+    </frame>
+    <frame>
+      <ip>0x774E89A</ip>
+      <obj>/opt/com/lib/comp/libft.so</obj>
+      <fn>ComFt::FtMoDbServiceWrapper::getMoAttribute(unsigned long, char const*, char const*, ComMoAttributeValueContainer**)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/ft_lib</dir>
+      <file>ft_mo_db_service_wrapper_impl.cc</file>
+      <line>321</line>
+    </frame>
+    <frame>
+      <ip>0x7750513</ip>
+      <obj>/opt/com/lib/comp/libft.so</obj>
+      <fn>_mo_db_wrapper_getMoAttribute_if</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/ft_lib</dir>
+      <file>ft_mo_db_service_wrapper_impl.cc</file>
+      <line>1346</line>
+    </frame>
+    <frame>
+      <ip>0x595ED7</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::MoSpi_1_to_1::getMoAttribute(unsigned long, char const*, char const*, MafMoAttributeValueContainer**)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A1EDF</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::GetMoAttributeCmd::do_execute_v1(MafCmRouterService::CmRouterParticipant&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A07D1</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::Cmd::execute(MafCmRouterService::CmRouterParticipant&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A2AA7</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::Cmd::execute()</fn>
+    </frame>
+    <frame>
+      <ip>0x57793E</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>getMoAttribute_1</fn>
+    </frame>
+    <frame>
+      <ip>0xBC58427</ip>
+      <obj>/opt/com/lib/comp/libcom_security_mgmt_service.so</obj>
+      <fn>ComSecurityManagement::SmStorage::getAdmStateFromMOM(bool&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/security_management/src</dir>
+      <file>SmStorage.cc</file>
+      <line>163</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C26BDA</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>263</line>
+    </frame>
+    <frame>
+      <ip>0xBC39C64</ip>
+      <obj>/opt/com/lib/comp/libcom_security_mgmt_service.so</obj>
+      <fn>ComSecurityManagement::SmComponent::getMoAttribute(unsigned long, char const*, char const*, MafMoAttributeValueResult_3*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/security_management/src</dir>
+      <file>SmComponent.cc</file>
+      <line>921</line>
+    </frame>
+    <frame>
+      <ip>0xBC39F2B</ip>
+      <obj>/opt/com/lib/comp/libcom_security_mgmt_service.so</obj>
+      <fn>sm_getMoAttribute_3</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/security_management/src</dir>
+      <file>SmComponent.cc</file>
+      <line>96</line>
+    </frame>
+    <frame>
+      <ip>0xB78A573</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>FtMoDbService::MoOiHandler::getMoAttribute(FtMoDbService::MoArgGet&amp;, MafReturnT&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xB78355D</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>FtMoDbService::MoDbService::getMoAttribute(FtMoDbService::MoArgGet&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xB78371E</ip>
+      <obj>/opt/com/lib/comp/libmaf_ft_mo_db.so</obj>
+      <fn>_ftMoDbGetMoAttribute_1</fn>
+    </frame>
+    <frame>
+      <ip>0x774E89A</ip>
+      <obj>/opt/com/lib/comp/libft.so</obj>
+      <fn>ComFt::FtMoDbServiceWrapper::getMoAttribute(unsigned long, char const*, char const*, ComMoAttributeValueContainer**)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/ft_lib</dir>
+      <file>ft_mo_db_service_wrapper_impl.cc</file>
+      <line>321</line>
+    </frame>
+    <frame>
+      <ip>0x7750513</ip>
+      <obj>/opt/com/lib/comp/libft.so</obj>
+      <fn>_mo_db_wrapper_getMoAttribute_if</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/ft_lib</dir>
+      <file>ft_mo_db_service_wrapper_impl.cc</file>
+      <line>1346</line>
+    </frame>
+    <frame>
+      <ip>0x595ED7</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::MoSpi_1_to_1::getMoAttribute(unsigned long, char const*, char const*, MafMoAttributeValueContainer**)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A1EDF</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::GetMoAttributeCmd::do_execute_v1(MafCmRouterService::CmRouterParticipant&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A07D1</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::Cmd::execute(MafCmRouterService::CmRouterParticipant&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5A2AA7</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafCmRouterService::Cmd::execute()</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x11</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xDA16D0C</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>638</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+    <frame>
+      <ip>0xDA17A9A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeCommand(ComCliUtilities::CliApiContext&amp;, std::string, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>1004</line>
+    </frame>
+    <frame>
+      <ip>0xDAC0B94</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>useModule(ComCliApiContext_6T*, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdComp.cc</file>
+      <line>245</line>
+    </frame>
+    <frame>
+      <ip>0xDAC415A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdComp.cc</file>
+      <line>548</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1AF3</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiCmdComp_7::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>587</line>
+    </frame>
+    <frame>
+      <ip>0xD6C0025</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>93</line>
+    </frame>
+    <frame>
+      <ip>0xD6B4ADF</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1515</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x4F1F01F</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::PooledThread::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>ThreadPool.cpp</file>
+      <line>215</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x19</unique>
+  <tid>2</tid>
+  <kind>UninitValue</kind>
+  <what>Use of uninitialised value of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x665BA43</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>_itoa_word</fn>
+    </frame>
+    <frame>
+      <ip>0x665EAD6</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vfprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x668795A</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vsnprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x6FE0763</ip>
+      <obj>/opt/com/lib/libcom_common.so</obj>
+      <fn>Com::LoggingWrapper::trace_printf(char const*, char const*, unsigned int, unsigned int, char const*, ...)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>439</line>
+    </frame>
+    <frame>
+      <ip>0xECAF194</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>ComCliExtensionPipe3::ExtensionPipe3CmdComp::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>268</line>
+    </frame>
+    <frame>
+      <ip>0xECAF436</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>360</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x1a</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x665BA4D</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>_itoa_word</fn>
+    </frame>
+    <frame>
+      <ip>0x665EAD6</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vfprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x668795A</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vsnprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x6FE0763</ip>
+      <obj>/opt/com/lib/libcom_common.so</obj>
+      <fn>Com::LoggingWrapper::trace_printf(char const*, char const*, unsigned int, unsigned int, char const*, ...)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>439</line>
+    </frame>
+    <frame>
+      <ip>0xECAF194</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>ComCliExtensionPipe3::ExtensionPipe3CmdComp::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>268</line>
+    </frame>
+    <frame>
+      <ip>0xECAF436</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>360</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x1b</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x665EB61</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vfprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x668795A</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vsnprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x6FE0763</ip>
+      <obj>/opt/com/lib/libcom_common.so</obj>
+      <fn>Com::LoggingWrapper::trace_printf(char const*, char const*, unsigned int, unsigned int, char const*, ...)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>439</line>
+    </frame>
+    <frame>
+      <ip>0xECAF194</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>ComCliExtensionPipe3::ExtensionPipe3CmdComp::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>268</line>
+    </frame>
+    <frame>
+      <ip>0xECAF436</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>360</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x4F1F01F</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::PooledThread::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>ThreadPool.cpp</file>
+      <line>215</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x1c</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x665F29B</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vfprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x668795A</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vsnprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x6FE0763</ip>
+      <obj>/opt/com/lib/libcom_common.so</obj>
+      <fn>Com::LoggingWrapper::trace_printf(char const*, char const*, unsigned int, unsigned int, char const*, ...)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>439</line>
+    </frame>
+    <frame>
+      <ip>0xECAF194</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>ComCliExtensionPipe3::ExtensionPipe3CmdComp::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>268</line>
+    </frame>
+    <frame>
+      <ip>0xECAF436</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>360</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x4F1F01F</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::PooledThread::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>ThreadPool.cpp</file>
+      <line>215</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x1d</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x665DEE6</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vfprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x668795A</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vsnprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x6FE0763</ip>
+      <obj>/opt/com/lib/libcom_common.so</obj>
+      <fn>Com::LoggingWrapper::trace_printf(char const*, char const*, unsigned int, unsigned int, char const*, ...)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>439</line>
+    </frame>
+    <frame>
+      <ip>0xECAF194</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>ComCliExtensionPipe3::ExtensionPipe3CmdComp::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>268</line>
+    </frame>
+    <frame>
+      <ip>0xECAF436</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>360</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x4F1F01F</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::PooledThread::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>ThreadPool.cpp</file>
+      <line>215</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x1e</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xECAF1F9</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>ComCliExtensionPipe3::ExtensionPipe3CmdComp::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xECAF436</ip>
+      <obj>/opt/com/lib/comp/libcli_pipeMod3.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipeMod3/src</dir>
+      <file>ExtensionPipe3CmdComp.cc</file>
+      <line>360</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x4F1F01F</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::PooledThread::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>ThreadPool.cpp</file>
+      <line>215</line>
+    </frame>
+    <frame>
+      <ip>0x4F19E1D</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::ThreadImpl::runnableEntry(void*)</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>Thread_POSIX.cpp</file>
+      <line>378</line>
+    </frame>
+    <frame>
+      <ip>0x5C8B5EF</ip>
+      <obj>/lib64/libpthread-2.11.1.so</obj>
+      <fn>start_thread</fn>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x21</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x665EB61</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vfprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x668795A</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vsnprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x6FE0763</ip>
+      <obj>/opt/com/lib/libcom_common.so</obj>
+      <fn>Com::LoggingWrapper::trace_printf(char const*, char const*, unsigned int, unsigned int, char const*, ...)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>439</line>
+    </frame>
+    <frame>
+      <ip>0xE39E008</ip>
+      <obj>/opt/com/lib/comp/libcli_pipemodule1.so</obj>
+      <fn>ComCliExtensionPipe::ExtensionPipeComp1::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipemodule1/src</dir>
+      <file>ExtensionPipeComp1.cc</file>
+      <line>285</line>
+    </frame>
+    <frame>
+      <ip>0xE39E2A6</ip>
+      <obj>/opt/com/lib/comp/libcli_pipemodule1.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipemodule1/src</dir>
+      <file>ExtensionPipeComp1.cc</file>
+      <line>374</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x4F1F01F</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::PooledThread::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>ThreadPool.cpp</file>
+      <line>215</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x24</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x665EB61</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vfprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x668795A</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vsnprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x6FE0763</ip>
+      <obj>/opt/com/lib/libcom_common.so</obj>
+      <fn>Com::LoggingWrapper::trace_printf(char const*, char const*, unsigned int, unsigned int, char const*, ...)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>439</line>
+    </frame>
+    <frame>
+      <ip>0xE626B44</ip>
+      <obj>/opt/com/lib/comp/libcli_pipemodule2.so</obj>
+      <fn>ComCliExtensionPipe::ExtensionPipeComp2::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipemodule2/src</dir>
+      <file>ExtensionPipeComp2.cc</file>
+      <line>300</line>
+    </frame>
+    <frame>
+      <ip>0xE626DE6</ip>
+      <obj>/opt/com/lib/comp/libcli_pipemodule2.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipemodule2/src</dir>
+      <file>ExtensionPipeComp2.cc</file>
+      <line>389</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x4F1F01F</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::PooledThread::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>ThreadPool.cpp</file>
+      <line>215</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x25</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x665F29B</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vfprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x668795A</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vsnprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x6FE0763</ip>
+      <obj>/opt/com/lib/libcom_common.so</obj>
+      <fn>Com::LoggingWrapper::trace_printf(char const*, char const*, unsigned int, unsigned int, char const*, ...)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>439</line>
+    </frame>
+    <frame>
+      <ip>0xE626B44</ip>
+      <obj>/opt/com/lib/comp/libcli_pipemodule2.so</obj>
+      <fn>ComCliExtensionPipe::ExtensionPipeComp2::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipemodule2/src</dir>
+      <file>ExtensionPipeComp2.cc</file>
+      <line>300</line>
+    </frame>
+    <frame>
+      <ip>0xE626DE6</ip>
+      <obj>/opt/com/lib/comp/libcli_pipemodule2.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipemodule2/src</dir>
+      <file>ExtensionPipeComp2.cc</file>
+      <line>389</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x4F1F01F</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::PooledThread::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>ThreadPool.cpp</file>
+      <line>215</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x26</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x665DEE6</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vfprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x668795A</ip>
+      <obj>/lib64/libc-2.11.1.so</obj>
+      <fn>vsnprintf</fn>
+    </frame>
+    <frame>
+      <ip>0x6FE0763</ip>
+      <obj>/opt/com/lib/libcom_common.so</obj>
+      <fn>Com::LoggingWrapper::trace_printf(char const*, char const*, unsigned int, unsigned int, char const*, ...)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>439</line>
+    </frame>
+    <frame>
+      <ip>0xE626B44</ip>
+      <obj>/opt/com/lib/comp/libcli_pipemodule2.so</obj>
+      <fn>ComCliExtensionPipe::ExtensionPipeComp2::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipemodule2/src</dir>
+      <file>ExtensionPipeComp2.cc</file>
+      <line>300</line>
+    </frame>
+    <frame>
+      <ip>0xE626DE6</ip>
+      <obj>/opt/com/lib/comp/libcli_pipemodule2.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipemodule2/src</dir>
+      <file>ExtensionPipeComp2.cc</file>
+      <line>389</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x4F1F01F</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::PooledThread::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>ThreadPool.cpp</file>
+      <line>215</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x27</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xE626BA9</ip>
+      <obj>/opt/com/lib/comp/libcli_pipemodule2.so</obj>
+      <fn>ComCliExtensionPipe::ExtensionPipeComp2::useModule(ComCliUtilities::CliApiContext&amp;, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipemodule2/src</dir>
+      <file>ExtensionPipeComp2.cc</file>
+      <line>302</line>
+    </frame>
+    <frame>
+      <ip>0xE626DE6</ip>
+      <obj>/opt/com/lib/comp/libcli_pipemodule2.so</obj>
+      <fn>_cmdComp1_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/extensions/pipemodule2/src</dir>
+      <file>ExtensionPipeComp2.cc</file>
+      <line>389</line>
+    </frame>
+    <frame>
+      <ip>0xD6A1A69</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>(anonymous namespace)::CliApiPipeCmdComp_1::doUseModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>641</line>
+    </frame>
+    <frame>
+      <ip>0xD6C00B9</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliApiPipeCmdComp::useModule(ComCliActionEnum_2T, unsigned int, unsigned int*, std::string const&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>154</line>
+    </frame>
+    <frame>
+      <ip>0xD6B5070</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1539</line>
+    </frame>
+    <frame>
+      <ip>0xD6BA3C7</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::run()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1193</line>
+    </frame>
+    <frame>
+      <ip>0xD3ECD76</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerConnection::start()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerConnection.cpp</file>
+      <line>65</line>
+    </frame>
+    <frame>
+      <ip>0xD3FCC07</ip>
+      <obj>/usr/lib64/libPocoNet.so.15</obj>
+      <fn>Poco::Net::TCPServerDispatcher::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Net/src</dir>
+      <file>TCPServerDispatcher.cpp</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x4F1F01F</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::PooledThread::run()</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>ThreadPool.cpp</file>
+      <line>215</line>
+    </frame>
+    <frame>
+      <ip>0x4F19E1D</ip>
+      <obj>/usr/lib64/libPocoFoundation.so.15</obj>
+      <fn>Poco::ThreadImpl::runnableEntry(void*)</fn>
+      <dir>/home/xnagend/com-main-latest/build/3pp/build/poco/src/poco/Foundation/src</dir>
+      <file>Thread_POSIX.cpp</file>
+      <line>378</line>
+    </frame>
+    <frame>
+      <ip>0x5C8B5EF</ip>
+      <obj>/lib64/libpthread-2.11.1.so</obj>
+      <fn>start_thread</fn>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD6B444D</ip>
+      <obj>/opt/com/lib/comp/libcom_cli_agent.so</obj>
+      <fn>ComCliAgent::CliAgentConnection::selectCmdGroup()</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/agent/src</dir>
+      <file>CliAgentConnection.cc</file>
+      <line>1467</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x28</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xDA74C95</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>967</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+    <frame>
+      <ip>0xDA17A9A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeCommand(ComCliUtilities::CliApiContext&amp;, std::string, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>1004</line>
+    </frame>
+    <frame>
+      <ip>0xDAC1867</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>useModule(ComCliApiContext_6T*, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdComp.cc</file>
+      <line>362</line>
+    </frame>
+    <frame>
+      <ip>0xDAC415A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic_useModule</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdComp.cc</file>
+      <line>548</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x29</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x5F458B6</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+    <frame>
+      <ip>0xDA17A9A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeCommand(ComCliUtilities::CliApiContext&amp;, std::string, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>1004</line>
+    </frame>
+    <frame>
+      <ip>0xDAC1867</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>useModule(ComCliApiContext_6T*, ComCliActionEnum_2T, unsigned int, unsigned int*, char const*, char const*)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdComp.cc</file>
+      <line>362</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x2a</unique>
+  <tid>2</tid>
+  <kind>UninitValue</kind>
+  <what>Use of uninitialised value of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C27EF2</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>strlen</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/memcheck</dir>
+      <file>mc_replace_strmem.c</file>
+      <line>390</line>
+    </frame>
+    <frame>
+      <ip>0x5F458BF</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+    <frame>
+      <ip>0xDA17A9A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeCommand(ComCliUtilities::CliApiContext&amp;, std::string, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>1004</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x2b</unique>
+  <tid>2</tid>
+  <kind>UninitValue</kind>
+  <what>Use of uninitialised value of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C27F04</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>strlen</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/memcheck</dir>
+      <file>mc_replace_strmem.c</file>
+      <line>390</line>
+    </frame>
+    <frame>
+      <ip>0x5F458BF</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+    <frame>
+      <ip>0xDA17A9A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeCommand(ComCliUtilities::CliApiContext&amp;, std::string, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>1004</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x2c</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x5F4577E</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+    </frame>
+    <frame>
+      <ip>0x5F458D2</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+    <frame>
+      <ip>0xDA17A9A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeCommand(ComCliUtilities::CliApiContext&amp;, std::string, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>1004</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x2d</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x5F45783</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+    </frame>
+    <frame>
+      <ip>0x5F458D2</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+    <frame>
+      <ip>0xDA17A9A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeCommand(ComCliUtilities::CliApiContext&amp;, std::string, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>1004</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x2e</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x5F44DB1</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5F45794</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+    </frame>
+    <frame>
+      <ip>0x5F458D2</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x2f</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x5F44DB6</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5F45794</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+    </frame>
+    <frame>
+      <ip>0x5F458D2</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x30</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x5F44DEA</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x5F45794</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+    </frame>
+    <frame>
+      <ip>0x5F458D2</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x31</unique>
+  <tid>2</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x5F457A0</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+    </frame>
+    <frame>
+      <ip>0x5F458D2</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+    <frame>
+      <ip>0xDA17A9A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeCommand(ComCliUtilities::CliApiContext&amp;, std::string, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>1004</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x32</unique>
+  <tid>2</tid>
+  <kind>UninitValue</kind>
+  <what>Use of uninitialised value of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x5F457E0</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+    </frame>
+    <frame>
+      <ip>0x5F458D2</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+    <frame>
+      <ip>0xDA17A9A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeCommand(ComCliUtilities::CliApiContext&amp;, std::string, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>1004</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x33</unique>
+  <tid>2</tid>
+  <kind>UninitValue</kind>
+  <what>Use of uninitialised value of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x5F457BB</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+    </frame>
+    <frame>
+      <ip>0x5F458D2</ip>
+      <obj>/usr/lib64/libstdc++.so.6.0.10</obj>
+      <fn>std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0xDA74BF4</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::DistinguishedName::getTreeRootInstance(unsigned long const&amp;) const</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>DistinguishedName.cc</file>
+      <line>968</line>
+    </frame>
+    <frame>
+      <ip>0xDAD6C36</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::updatePrompt(ComCliUtilities::CliApiContext&amp;, std::string const&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>BasicCmdUtilities.cc</file>
+      <line>270</line>
+    </frame>
+    <frame>
+      <ip>0xDBEF4C8</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliBasic::PromptCommand::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>PromptCommand.cc</file>
+      <line>182</line>
+    </frame>
+    <frame>
+      <ip>0xDC06A97</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AbstractVerboseCommand::executeVerbose(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/basic/src</dir>
+      <file>AbstractVerboseCommand.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0xDA1B100</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteNode::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteNode.cc</file>
+      <line>187</line>
+    </frame>
+    <frame>
+      <ip>0xDA1640E</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeValidation(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>578</line>
+    </frame>
+    <frame>
+      <ip>0xDA16CFC</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>636</line>
+    </frame>
+    <frame>
+      <ip>0xDA17562</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeSearch(ComCliUtilities::AutoCompleteNode*, ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>708</line>
+    </frame>
+    <frame>
+      <ip>0xDA178ED</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::execute(ComCliUtilities::CliApiContext&amp;, std::vector&lt;std::string, std::allocator&lt;std::string&gt; &gt; const&amp;, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>738</line>
+    </frame>
+    <frame>
+      <ip>0xDA17A9A</ip>
+      <obj>/opt/com/lib/comp/libcli_basic.so</obj>
+      <fn>ComCliUtilities::AutoCompleteTree::executeCommand(ComCliUtilities::CliApiContext&amp;, std::string, unsigned int*, ComCliUtilities::IOutput&amp;)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/cli/cmd_comp/common/src</dir>
+      <file>AutoCompleteTree.cc</file>
+      <line>1004</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x6D90378</ip>
+      <obj>/opt/com/lib/comp/libcom_ext_cm_router_service.so</obj>
+    </frame>
+  </stack>
+</error>
+
+
+<status>
+  <state>FINISHED</state>
+  <time>00:00:01:15.089 </time>
+</status>
+
+<error>
+  <unique>0xba</unique>
+  <tid>1</tid>
+  <kind>Leak_IndirectlyLost</kind>
+  <xwhat>
+    <text>24 bytes in 1 blocks are indirectly lost in loss record 3 of 25</text>
+    <leakedbytes>24</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C26BDA</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>263</line>
+    </frame>
+    <frame>
+      <ip>0x9C21A2B</ip>
+      <fn>CRYPTO_malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x994F139</ip>
+    </frame>
+    <frame>
+      <ip>0x994F1D8</ip>
+      <fn>SSL_COMP_get_compression_methods</fn>
+    </frame>
+    <frame>
+      <ip>0x9951876</ip>
+      <fn>SSL_library_init</fn>
+    </frame>
+    <frame>
+      <ip>0x94BB212</ip>
+    </frame>
+    <frame>
+      <ip>0x94C3C7C</ip>
+      <fn>curl_global_init</fn>
+    </frame>
+    <frame>
+      <ip>0x7BE0799</ip>
+      <fn>setupGlobalConstants</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/lib/curl_transport</dir>
+      <file>xmlrpc_curl_transport.c</file>
+      <line>1498</line>
+    </frame>
+    <frame>
+      <ip>0x79CCD62</ip>
+      <fn>(anonymous namespace)::globalConstant::globalConstant()</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/src/cpp</dir>
+      <file>curl.cpp</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0x79CEF0F</ip>
+      <fn>__static_initialization_and_destruction_0(int, int)</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/src/cpp</dir>
+      <file>curl.cpp</file>
+      <line>89</line>
+    </frame>
+    <frame>
+      <ip>0x79CEF41</ip>
+      <fn>global constructors keyed to curl.cpp</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/src/cpp</dir>
+      <file>curl.cpp</file>
+      <line>394</line>
+    </frame>
+    <frame>
+      <ip>0x79D0DC5</ip>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0xc0</unique>
+  <tid>1</tid>
+  <kind>Leak_IndirectlyLost</kind>
+  <xwhat>
+    <text>32 bytes in 1 blocks are indirectly lost in loss record 9 of 25</text>
+    <leakedbytes>32</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C26BDA</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>263</line>
+    </frame>
+    <frame>
+      <ip>0x9C21A2B</ip>
+      <fn>CRYPTO_malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x9C5B7CC</ip>
+      <fn>sk_new</fn>
+    </frame>
+    <frame>
+      <ip>0x994F117</ip>
+    </frame>
+    <frame>
+      <ip>0x994F1D8</ip>
+      <fn>SSL_COMP_get_compression_methods</fn>
+    </frame>
+    <frame>
+      <ip>0x9951876</ip>
+      <fn>SSL_library_init</fn>
+    </frame>
+    <frame>
+      <ip>0x94BB212</ip>
+    </frame>
+    <frame>
+      <ip>0x94C3C7C</ip>
+      <fn>curl_global_init</fn>
+    </frame>
+    <frame>
+      <ip>0x7BE0799</ip>
+      <fn>setupGlobalConstants</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/lib/curl_transport</dir>
+      <file>xmlrpc_curl_transport.c</file>
+      <line>1498</line>
+    </frame>
+    <frame>
+      <ip>0x79CCD62</ip>
+      <fn>(anonymous namespace)::globalConstant::globalConstant()</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/src/cpp</dir>
+      <file>curl.cpp</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0x79CEF0F</ip>
+      <fn>__static_initialization_and_destruction_0(int, int)</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/src/cpp</dir>
+      <file>curl.cpp</file>
+      <line>89</line>
+    </frame>
+    <frame>
+      <ip>0x79CEF41</ip>
+      <fn>global constructors keyed to curl.cpp</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/src/cpp</dir>
+      <file>curl.cpp</file>
+      <line>394</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0xc3</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>40 bytes in 1 blocks are definitely lost in loss record 12 of 25</text>
+    <leakedbytes>40</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2749B</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>operator new(unsigned long)</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>287</line>
+    </frame>
+    <frame>
+      <ip>0x6FDEC22</ip>
+      <fn>__static_initialization_and_destruction_0(int, int)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x6FDECD4</ip>
+      <fn>global constructors keyed to ComLoggingWrapper.cc</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>643</line>
+    </frame>
+    <frame>
+      <ip>0x700C2C5</ip>
+    </frame>
+    <frame>
+      <ip>0x6FDA6DA</ip>
+    </frame>
+    <frame>
+      <ip>0x400DAA5</ip>
+      <obj>/lib64/ld-2.11.1.so</obj>
+      <fn>_dl_catch_error</fn>
+    </frame>
+    <frame>
+      <ip>0x4011A5A</ip>
+      <obj>/lib64/ld-2.11.1.so</obj>
+      <fn>_dl_open</fn>
+    </frame>
+    <frame>
+      <ip>0x5877F9A</ip>
+      <obj>/lib64/libdl-2.11.1.so</obj>
+      <fn>dlopen_doit</fn>
+    </frame>
+    <frame>
+      <ip>0x400DAA5</ip>
+      <obj>/lib64/ld-2.11.1.so</obj>
+      <fn>_dl_catch_error</fn>
+    </frame>
+    <frame>
+      <ip>0x587833B</ip>
+      <obj>/lib64/libdl-2.11.1.so</obj>
+      <fn>_dlerror_run</fn>
+    </frame>
+    <frame>
+      <ip>0x5877F00</ip>
+      <obj>/lib64/libdl-2.11.1.so</obj>
+      <fn>dlopen@@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0x546C66</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::LibraryManager::openLib(std::string&amp;, std::string&amp;, std::string&amp;)</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0xc4</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>40 bytes in 1 blocks are definitely lost in loss record 13 of 25</text>
+    <leakedbytes>40</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2749B</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>operator new(unsigned long)</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>287</line>
+    </frame>
+    <frame>
+      <ip>0x6FDEC47</ip>
+      <fn>__static_initialization_and_destruction_0(int, int)</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0x6FDECD4</ip>
+      <fn>global constructors keyed to ComLoggingWrapper.cc</fn>
+      <dir>/home/xrohvij/HR38990/com33/src/common/src</dir>
+      <file>ComLoggingWrapper.cc</file>
+      <line>643</line>
+    </frame>
+    <frame>
+      <ip>0x700C2C5</ip>
+    </frame>
+    <frame>
+      <ip>0x6FDA6DA</ip>
+    </frame>
+    <frame>
+      <ip>0x400DAA5</ip>
+      <obj>/lib64/ld-2.11.1.so</obj>
+      <fn>_dl_catch_error</fn>
+    </frame>
+    <frame>
+      <ip>0x4011A5A</ip>
+      <obj>/lib64/ld-2.11.1.so</obj>
+      <fn>_dl_open</fn>
+    </frame>
+    <frame>
+      <ip>0x5877F9A</ip>
+      <obj>/lib64/libdl-2.11.1.so</obj>
+      <fn>dlopen_doit</fn>
+    </frame>
+    <frame>
+      <ip>0x400DAA5</ip>
+      <obj>/lib64/ld-2.11.1.so</obj>
+      <fn>_dl_catch_error</fn>
+    </frame>
+    <frame>
+      <ip>0x587833B</ip>
+      <obj>/lib64/libdl-2.11.1.so</obj>
+      <fn>_dlerror_run</fn>
+    </frame>
+    <frame>
+      <ip>0x5877F00</ip>
+      <obj>/lib64/libdl-2.11.1.so</obj>
+      <fn>dlopen@@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0x546C66</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::LibraryManager::openLib(std::string&amp;, std::string&amp;, std::string&amp;)</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0xc6</unique>
+  <tid>1</tid>
+  <kind>Leak_StillReachable</kind>
+  <xwhat>
+    <text>56 bytes in 1 blocks are still reachable in loss record 15 of 25</text>
+    <leakedbytes>56</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2749B</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>operator new(unsigned long)</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>287</line>
+    </frame>
+    <frame>
+      <ip>0x52EF31</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::LoggingWrapper::instance()</fn>
+    </frame>
+    <frame>
+      <ip>0x546D574</ip>
+      <obj>/opt/com/lib/libmaf_common.so</obj>
+      <fn>Maf::Timer::Timer(long, long)</fn>
+    </frame>
+    <frame>
+      <ip>0x56C7BF</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>MafTransactionService::TxService::TxService()</fn>
+    </frame>
+    <frame>
+      <ip>0x54A6D8</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::InternalServiceManager::InternalServiceManager()</fn>
+    </frame>
+    <frame>
+      <ip>0x5482CC</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::LibraryManager::LibraryManager(Maf::ConfigurationFile&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x554381</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::ComponentManager::ComponentManager(Maf::ConfigurationFile&amp;)</fn>
+    </frame>
+    <frame>
+      <ip>0x55AB7F</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::MafCore::MafCore()</fn>
+    </frame>
+    <frame>
+      <ip>0x52EC25</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0xca</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>88 (32 direct, 56 indirect) bytes in 1 blocks are definitely lost in loss record 19 of 25</text>
+    <leakedbytes>88</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C26BDA</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>263</line>
+    </frame>
+    <frame>
+      <ip>0x9C21A2B</ip>
+      <fn>CRYPTO_malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x9C5B7AE</ip>
+      <fn>sk_new</fn>
+    </frame>
+    <frame>
+      <ip>0x994F117</ip>
+    </frame>
+    <frame>
+      <ip>0x994F1D8</ip>
+      <fn>SSL_COMP_get_compression_methods</fn>
+    </frame>
+    <frame>
+      <ip>0x9951876</ip>
+      <fn>SSL_library_init</fn>
+    </frame>
+    <frame>
+      <ip>0x94BB212</ip>
+    </frame>
+    <frame>
+      <ip>0x94C3C7C</ip>
+      <fn>curl_global_init</fn>
+    </frame>
+    <frame>
+      <ip>0x7BE0799</ip>
+      <fn>setupGlobalConstants</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/lib/curl_transport</dir>
+      <file>xmlrpc_curl_transport.c</file>
+      <line>1498</line>
+    </frame>
+    <frame>
+      <ip>0x79CCD62</ip>
+      <fn>(anonymous namespace)::globalConstant::globalConstant()</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/src/cpp</dir>
+      <file>curl.cpp</file>
+      <line>64</line>
+    </frame>
+    <frame>
+      <ip>0x79CEF0F</ip>
+      <fn>__static_initialization_and_destruction_0(int, int)</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/src/cpp</dir>
+      <file>curl.cpp</file>
+      <line>89</line>
+    </frame>
+    <frame>
+      <ip>0x79CEF41</ip>
+      <fn>global constructors keyed to curl.cpp</fn>
+      <dir>/home/edancre/com-main/build-LSB/3pp/build/xmlrpc/src/xmlrpc/src/cpp</dir>
+      <file>curl.cpp</file>
+      <line>394</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0xcc</unique>
+  <tid>1</tid>
+  <kind>Leak_StillReachable</kind>
+  <xwhat>
+    <text>408 bytes in 1 blocks are still reachable in loss record 21 of 25</text>
+    <leakedbytes>408</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C26BDA</ip>
+      <obj>/home/ekasske/valgrind/valgrind-3.7.0p1/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>/home/ekasske/Download/valgrind-3.7.0/coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>263</line>
+    </frame>
+    <frame>
+      <ip>0x401160B</ip>
+      <obj>/lib64/ld-2.11.1.so</obj>
+      <fn>_dl_scope_free</fn>
+    </frame>
+    <frame>
+      <ip>0x4012EF3</ip>
+      <obj>/lib64/ld-2.11.1.so</obj>
+      <fn>_dl_close_worker</fn>
+    </frame>
+    <frame>
+      <ip>0x401392B</ip>
+      <obj>/lib64/ld-2.11.1.so</obj>
+      <fn>_dl_close</fn>
+    </frame>
+    <frame>
+      <ip>0x400DAA5</ip>
+      <obj>/lib64/ld-2.11.1.so</obj>
+      <fn>_dl_catch_error</fn>
+    </frame>
+    <frame>
+      <ip>0x587833B</ip>
+      <obj>/lib64/libdl-2.11.1.so</obj>
+      <fn>_dlerror_run</fn>
+    </frame>
+    <frame>
+      <ip>0x587804E</ip>
+      <obj>/lib64/libdl-2.11.1.so</obj>
+      <fn>dlclose</fn>
+    </frame>
+    <frame>
+      <ip>0x54677C</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::LibraryManager::closeAllLibs()</fn>
+    </frame>
+    <frame>
+      <ip>0x54D699</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::ComponentManager::terminate()</fn>
+    </frame>
+    <frame>
+      <ip>0x559B78</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::MafCore::eventHandler()</fn>
+    </frame>
+    <frame>
+      <ip>0x559DAD</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>Maf::MafCore::runMaf()</fn>
+    </frame>
+    <frame>
+      <ip>0x52EC98</ip>
+      <obj>/opt/com/bin/maf</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+</error>
+
+<errorcounts>
+  <pair>
+    <count>12</count>
+    <unique>0x33</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x32</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x31</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x30</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x2f</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x2e</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x2d</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x2c</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x2b</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x2a</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x29</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x28</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x27</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x26</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x25</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x24</unique>
+  </pair>
+  <pair>
+    <count>3</count>
+    <unique>0x1a</unique>
+  </pair>
+  <pair>
+    <count>3</count>
+    <unique>0x19</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x21</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x1e</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x1d</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x1c</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x1b</unique>
+  </pair>
+  <pair>
+    <count>8</count>
+    <unique>0x11</unique>
+  </pair>
+  <pair>
+    <count>6</count>
+    <unique>0x6</unique>
+  </pair>
+  <pair>
+    <count>6</count>
+    <unique>0x5</unique>
+  </pair>
+</errorcounts>
+
+<suppcounts>
+  <pair>
+    <count>1</count>
+    <name>ComLoggingWrapper SingleTon Leak</name>
+  </pair>
+  <pair>
+    <count>2</count>
+    <name>Poco Leaks</name>
+  </pair>
+  <pair>
+    <count>1</count>
+    <name>Poco Leaks</name>
+  </pair>
+  <pair>
+    <count>2</count>
+    <name>Logging Leaks</name>
+  </pair>
+  <pair>
+    <count>1</count>
+    <name>pthread context leak</name>
+  </pair>
+  <pair>
+    <count>4</count>
+    <name>FmSnmpLeak</name>
+  </pair>
+  <pair>
+    <count>1</count>
+    <name>MimtoolStringFalseReport8</name>
+  </pair>
+  <pair>
+    <count>1</count>
+    <name>String allocator error</name>
+  </pair>
+  <pair>
+    <count>1</count>
+    <name>dlopen errors</name>
+  </pair>
+  <pair>
+    <count>1</count>
+    <name>Poco leaks</name>
+  </pair>
+  <pair>
+    <count>1</count>
+    <name>Poco leaks</name>
+  </pair>
+  <pair>
+    <count>1</count>
+    <name>Poco leaks</name>
+  </pair>
+  <pair>
+    <count>1</count>
+    <name>Poco Leaks</name>
+  </pair>
+  <pair>
+    <count>2</count>
+    <name>U1004-ARM-_dl_relocate_object</name>
+  </pair>
+  <pair>
+    <count>3</count>
+    <name>glibc-2.5.x-on-SUSE-10.2-(PPC)-2a</name>
+  </pair>
+</suppcounts>
+
+</valgrindoutput>
+
